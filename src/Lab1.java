@@ -55,13 +55,13 @@ public class Lab1 {
     private static int partition(int[] array, int begin, int end) {
 
         int tmp = (end + begin) / 2;
-
+        //Take the middle element as a pivot element
         swap(array, end, tmp);
         int pivot = array[end];
 
         int pivotIndex = begin - 1;
 
-
+        //sort from 1 side instead of two
         for (int i = begin; i < end; i++) {
             if (array[i] < pivot) {
                 pivotIndex++;
