@@ -1,5 +1,3 @@
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Lab1 {
     /**
      * Sorting algorithms
@@ -14,6 +12,7 @@ public class Lab1 {
         }
     }
 
+    // Inserts an element into a sorted array interval.
     private static void insert(int[] array, int beg, int end) {
         if (array[end] < array[end - 1]) {
 
@@ -30,7 +29,6 @@ public class Lab1 {
     }
 
     // Quicksort.
-
     public static void quickSort(int[] array) {
         quickSort(array, 0, array.length - 1);
     }
@@ -72,85 +70,6 @@ public class Lab1 {
 
         return pivotIndex + 1;
 
-
-    }
-
-
-
-    /*
-    public static void quickSort(int[] array) {
-        if (array != null) {
-            quickSort(array, 0, array.length-1);
-        }
-    }
-
-    // Quicksort part of an array
-    private static void quickSort(int[] array, int begin, int end) {
-        if (begin < end) {
-            int pivot = partition(array, begin, end);
-
-            quickSort(array, begin, pivot-1);
-            quickSort(array,pivot+1, end);
-        }
-
-    }
-
-    // Partition part of an array, and return the index where the pivot
-    // ended up.
-    private static int partition(int[] array, int begin, int end) {
-        int low = begin + 1;
-        int high = end;
-        //medianPivot(array, begin, end);
-        randomPivot(array, begin, end);
-        int pivot = array[begin];
-
-        while (true) {
-            while (low <= high && array[low] < pivot)
-                low++;
-            while (low <= high && array[high] > pivot)
-                high--;
-
-            if (low > high) {
-                swap(array, begin, high);
-                return high;
-            }
-            swap(array, low, high);
-            low++;
-            high--;
-        }
-    }
-
-     */
-
-    // Swaps a random element in the list with the first element in the list.
-    private static void randomPivot(int[] array, int begin, int end) {
-        int randomIndex = ThreadLocalRandom.current().nextInt(begin, end + 1);
-        swap(array, begin, randomIndex);
-    }
-
-    private static void medianPivot(int[] array, int begin, int end) {
-        int mid = (begin + end) / 2;
-        if (array[begin] > array[end]) {
-            if (array[end] > array[mid]) {
-                swap(array, end, begin);
-                return;
-            } else if (array[begin] > array[mid]) {
-                swap(array, mid, begin);
-                return;
-            } else {
-                return; // begin is median
-            }
-        } else {
-            if (array[begin] > array[mid]) {
-                return; // begin is median
-            } else if (array[end] > array[mid]) {
-                swap(array, mid, begin);
-                return;
-            } else {
-                swap(array, end, begin);
-                return;
-            }
-        }
 
     }
 
