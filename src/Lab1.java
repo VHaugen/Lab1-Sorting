@@ -162,7 +162,6 @@ public class Lab1 {
     }
 
     // Mergesort.
-
     public static int[] mergeSort(int[] array) {
         if (array == null || array.length == 0) {
             return array;
@@ -211,6 +210,7 @@ public class Lab1 {
         return newArray;
     }
 
+    // Transfer every element in order from sourceIndex in the sourceArray to the targetArray from the targetIndex
     private static void transfer(int[] sourceArray, int sourceIndex, int[] targetArray, int targetIndex) {
         while (targetIndex < targetArray.length) {
             targetArray[targetIndex++] = sourceArray[sourceIndex++];
